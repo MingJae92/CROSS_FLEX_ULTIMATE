@@ -1,11 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Homepage from "./components/Homepage";
+import About from "./components/About";
+import Register from "./components/Register";
+import Contact from "./components/Contact";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <h1>CROSS FLEX FITNESS!!!</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
