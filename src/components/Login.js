@@ -1,53 +1,30 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  Outlet,
-} from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Avatar,
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Snackbar,
-} from "@mui/material";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 function Login() {
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "#1e88e5" }}>
         <Toolbar>
-          <Typography variant="h6">Workout Tracker</Typography>
-          <Button color="inherit" component={Link} to="/">
+          <div style={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <FitnessCenterIcon style={{ marginRight: 1 }} />
+            <Typography variant="h6">Workout Tracker</Typography>
+          </div>
+          <Button color="inherit" component={Link} to="/" sx={{ marginLeft: 2 }}>
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/about">
+          <Button color="inherit" component={Link} to="/about" sx={{ marginLeft: 2 }}>
             About
           </Button>
-          <Button color="inherit" component={Link} to="/contact">
+          <Button color="inherit" component={Link} to="/contact" sx={{ marginLeft: 2 }}>
             Contact
           </Button>
-          <Button color="inherit" component={Link} to="/register">
+          <Button color="inherit" component={Link} to="/register" sx={{ marginLeft: 2 }}>
             Register
           </Button>
-          <Button color="inherit" component={Link} to="/signin">
-            Sign In
-          </Button>
-          <Button color="inherit" component={Link} to="/login">
+          <Button color="inherit" component={Link} to="/login" sx={{ marginLeft: 2 }}>
             Login
           </Button>
         </Toolbar>
