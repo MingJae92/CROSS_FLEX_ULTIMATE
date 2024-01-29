@@ -1,8 +1,41 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  TextField,
+  Container,
+  CssBaseline,
+  Avatar,
+  Box,
+  Grid,
+} from "@mui/material";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-function Register() {
+
+const Register = () => {
+  const [form, setForm] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+  };
+
   return (
     <div>
       <AppBar position="static" sx={{ backgroundColor: "#1e88e5" }}>
@@ -28,9 +61,97 @@ function Register() {
           </Button>
         </Toolbar>
       </AppBar>
-      <h1>CROSS FLEX FITNESS!!!</h1>
+
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "#1e88e5" }}>
+            {/* You can add an icon or image for the Avatar */}
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Register
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstname"
+                  required
+                  fullWidth
+                  id="firstname"
+                  label="First Name"
+                  autoFocus
+                  value={form.firstname}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="lname"
+                  name="lastname"
+                  required
+                  fullWidth
+                  id="lastname"
+                  label="Last Name"
+                  value={form.lastname}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="email"
+                  name="email"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="new-password"
+                  name="password"
+                  required
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  type="password"
+                  value={form.password}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="new-password"
+                  name="confirmpassword"
+                  required
+                  fullWidth
+                  id="confirmpassword"
+                  label="Confirm Password"
+                  type="password"
+                  value={form.confirmpassword}
+                  onChange={handleChange}
+                />
+              </Grid>
+            </Grid>
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              Register
+            </Button>
+          </Box>
+        </Box>
+      </Container>
     </div>
   );
-}
+};
 
 export default Register;
