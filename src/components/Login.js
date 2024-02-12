@@ -1,10 +1,26 @@
 import React, { useState } from "react";
-import {  Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  TextField,
+  Container,
+  Paper,
+  Grid,
+} from "@mui/material";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 function Login() {
-    const [login, setLogin] = useState()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    // Add your login logic here
+    console.log("Logging in with:", username, password);
+  };
+
   return (
     <div>
       <AppBar position="static" sx={{ backgroundColor: "#1e88e5" }}>
@@ -30,7 +46,46 @@ function Login() {
           </Button>
         </Toolbar>
       </AppBar>
-      <h1>Login</h1>
+
+      <Container component="main" maxWidth="xs" style={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Paper elevation={3} style={{ padding: 16, width: "100%" }}>
+          <Typography component="h1" variant="h5">
+            Login
+          </Typography>
+          <form style={{ width: "100%" }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Username"
+                  variant="outlined"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={handleLogin}
+              style={{ marginTop: 16 }}
+            >
+              Login
+            </Button>
+          </form>
+        </Paper>
+      </Container>
     </div>
   );
 }
