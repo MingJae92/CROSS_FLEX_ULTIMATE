@@ -12,6 +12,7 @@ import {
   Box,
   Grid,
 } from "@mui/material";
+import axios from "axios"
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 const Register = () => {
@@ -31,9 +32,16 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add your form submission logic here
+    try {
+      const user_register_response = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/register`, form)
+      console.log(user_register_response)
+    } catch (error) {
+      console.log(error)
+    }
+    
   };
 
   return (

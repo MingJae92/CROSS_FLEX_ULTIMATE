@@ -16,7 +16,10 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleChange = ()=>{
+    
+
+
     // Add your login logic here
     console.log("Logging in with:", username, password);
   };
