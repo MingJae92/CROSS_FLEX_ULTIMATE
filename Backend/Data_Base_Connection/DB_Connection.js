@@ -21,7 +21,7 @@ const connectDB = async () => {
     await mongoose.connect(mongoURL, {
       useNewUrlParser: true, // Use new URL parser
       useUnifiedTopology: true, // Use new server discovery and monitoring engine
-    });
+    }); 
 
     console.log('DB now connected!!!');
   } catch (error) {

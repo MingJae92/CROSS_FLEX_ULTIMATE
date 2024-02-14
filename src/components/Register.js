@@ -36,7 +36,8 @@ const Register = () => {
     e.preventDefault();
     // Add your form submission logic here
     try {
-      const user_register_response = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/register`, form)
+      const user_register_response = await axios.post("http://locahost:6000/register", form)
+      
       console.log(user_register_response)
     } catch (error) {
       console.log(error)

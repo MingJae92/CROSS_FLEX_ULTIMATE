@@ -1,12 +1,12 @@
-import express from "express";
-import Register_User from "../Models/register_schema";
+// register_controller.js
+import Register_User from "../Models/register_schema.js";
 
 const registerCustomer = async (req, res) => {
   try {
     const { fullname, lastname, email, password, confirmpassword } = req.body;
-    
+
     // Validate input data (you can use a validation library or custom validation logic)
-    if (!fullname || !lastname|| !email || !password || !confirmpassword) {
+    if (!fullname || !lastname || !email || !password || !confirmpassword) {
       return res.status(400).json({ error: "Please provide all required fields." });
     }
 
@@ -21,4 +21,4 @@ const registerCustomer = async (req, res) => {
   }
 };
 
-export default { registerCustomer };
+export { registerCustomer };
