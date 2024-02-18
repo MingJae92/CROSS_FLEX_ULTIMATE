@@ -12,7 +12,7 @@ import {
   Box,
   Grid,
 } from "@mui/material";
-import axios from "axios"
+import axios from "axios";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 const Register = () => {
@@ -36,13 +36,18 @@ const Register = () => {
     e.preventDefault();
     // Add your form submission logic here
     try {
-      const user_register_response = await axios.post("http://locahost:6000/register", form)
-      
-      console.log(user_register_response)
+      const server_url = `${process.env.REACT_APP_SERVER_PORT}/register`;
+      console.log(server_url);
+      const user_register_response = await axios.post(server_url, form);
+
+      console.log(user_register_response);
+      alert("You are now registered!");
     } catch (error) {
-      console.log(error)
+      console.error("Axios network error:", error);
+      // console.log("Response data:", error.response.data);
+      // console.log("Response status:", error.response.status);
+      // console.log(error);
     }
-    
   };
 
   return (
@@ -53,19 +58,44 @@ const Register = () => {
             <FitnessCenterIcon style={{ marginRight: 1 }} />
             <Typography variant="h6">Workout Tracker</Typography>
           </div>
-          <Button color="inherit" component={Link} to="/" sx={{ marginLeft: 2 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/"
+            sx={{ marginLeft: 2 }}
+          >
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/about" sx={{ marginLeft: 2 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/about"
+            sx={{ marginLeft: 2 }}
+          >
             About
           </Button>
-          <Button color="inherit" component={Link} to="/contact" sx={{ marginLeft: 2 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/contact"
+            sx={{ marginLeft: 2 }}
+          >
             Contact
           </Button>
-          <Button color="inherit" component={Link} to="/register" sx={{ marginLeft: 2 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/register"
+            sx={{ marginLeft: 2 }}
+          >
             Register
           </Button>
-          <Button color="inherit" component={Link} to="/login" sx={{ marginLeft: 2 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/login"
+            sx={{ marginLeft: 2 }}
+          >
             Login
           </Button>
         </Toolbar>
@@ -153,7 +183,12 @@ const Register = () => {
                 />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Register
             </Button>
           </Box>

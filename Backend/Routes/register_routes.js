@@ -4,6 +4,6 @@ import { registerCustomer } from "../Controllers/register_controller.js";
 
 const router = express.Router();
 
-router.post("/register", registerCustomer);
+router.post("/", registerCustomer);
 
 export default router;
