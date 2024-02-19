@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const registerSchema = new mongoose.Schema({
-    fistname:{
+    firstname:{
         type:String,
         required: true
     },

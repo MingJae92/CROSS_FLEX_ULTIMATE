@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Enable CORS for all routes
-// app.use(cors());
+app.use(cors());
 
 
 
